@@ -1,9 +1,17 @@
 
-
 public class Board {
 
 	private final int SIZE;
 	private char[][] array;
+	private Stone lastStone;
+
+	public Stone getLastStone() {
+		return lastStone;
+	}
+
+	public void setLastStone(Stone lastStone) {
+		this.lastStone = lastStone;
+	}
 
 	public Board(int size) {
 		this.SIZE = size;
@@ -38,6 +46,7 @@ public class Board {
 
 	public void setStoneAt(int x, int y, char stone) {
 		array[SIZE - 1 - y][x] = stone;
+		lastStone = new Stone(x, y, stone);
 	}
 
 	public int getSize() {

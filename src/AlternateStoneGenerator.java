@@ -1,15 +1,20 @@
 
-
 class AlternateStoneGenerator {
-	private int cnt = 1;
+	private Board board;
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
 
 	public char generate() {
-		cnt = ++cnt % 2;
-
-		if (cnt % 2 == 0)
+		char stone;
+		if (board.getLastStone() == null)
 			return '●';
+		if (board.getLastStone().getStone() == '●')
+			stone = '○';
 		else
-			return '○';
+			stone = '●';
+		return stone;
 	}
 
 }
